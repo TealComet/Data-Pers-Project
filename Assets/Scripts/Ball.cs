@@ -16,19 +16,19 @@ public class Ball : MonoBehaviour
     {
         var velocity = m_Rigidbody.velocity;
         
-        //after a collision we accelerate a bit
+        // After a collision, accelerate by 1%
         velocity += velocity.normalized * 0.01f;
         
-        //check if we are not going totally vertically as this would lead to being stuck, we add a little vertical force
+        // If the ball is going totally vertically, add a little horizontal force
         if (Vector3.Dot(velocity.normalized, Vector3.up) < 0.1f)
         {
             velocity += velocity.y > 0 ? Vector3.up * 0.5f : Vector3.down * 0.5f;
         }
 
-        //max velocity
-        if (velocity.magnitude > 3.0f)
+        // Maximum velocity
+        if (velocity.magnitude > 3)
         {
-            velocity = velocity.normalized * 3.0f;
+            velocity = velocity.normalized * 3;
         }
 
         m_Rigidbody.velocity = velocity;

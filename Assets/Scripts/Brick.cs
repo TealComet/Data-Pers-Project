@@ -17,15 +17,18 @@ public class Brick : MonoBehaviour
         MaterialPropertyBlock block = new MaterialPropertyBlock();
         switch (PointValue)
         {
-            case 1 :
+            case 1:
                 block.SetColor("_BaseColor", Color.green);
                 break;
+
             case 2:
                 block.SetColor("_BaseColor", Color.yellow);
                 break;
-            case 5:
+
+            case 3:
                 block.SetColor("_BaseColor", Color.blue);
                 break;
+
             default:
                 block.SetColor("_BaseColor", Color.red);
                 break;
@@ -37,7 +40,7 @@ public class Brick : MonoBehaviour
     {
         onDestroyed.Invoke(PointValue);
         
-        //slight delay to be sure the ball have time to bounce
+        // Slight delay to be sure the ball has time to bounce
         Destroy(gameObject, 0.2f);
     }
 }
